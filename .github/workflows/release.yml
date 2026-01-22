@@ -22,7 +22,7 @@ jobs:
 
             # 设置构建日期（东八区）
             - name: get current date
-              run: echo "BUILD_DATE=$(date -d '8 hours' +'%Y-%m-%d')" >> $GITHUB_ENV
+              run: echo "BUILD_DATE=$( date -Im)" >> $GITHUB_ENV
 
             # 安装环境
             - name: init
@@ -62,7 +62,7 @@ jobs:
                   files: |
                       shellkits.tar.gz
                       shellkits-core.tar.gz
-                  tag_name: build-${{ env.BUILD_DATE }}
+                  tag_name: build-${{ env.BUILD_DATE }}-${{ github.sha }}
                   name: Release ${{ env.BUILD_DATE }}
                   body: |
                       Automatic release
