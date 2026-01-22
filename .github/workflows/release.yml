@@ -46,6 +46,7 @@ jobs:
                   mv kits/ shellkits/kits
                   cp README.md shellkits/README.md
                   cp setup.sh shellkits/setup.sh
+                  cp scripts/add_user.sh shellkits/add_user.sh
                   tar -zcvf shellkits.tar.gz shellkits/
 
             # 打包构建结果
