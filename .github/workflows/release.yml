@@ -60,8 +60,8 @@ jobs:
               uses: softprops/action-gh-release@v2
               with:
                   files: |
-                      shellkits.zip
-                      shellkits-core.zip
+                      shellkits.tar.gz
+                      shellkits-core.tar.gz
                   tag_name: build-${{ env.BUILD_DATE }}
                   name: Release ${{ env.BUILD_DATE }}
                   body: |
