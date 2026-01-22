@@ -1,58 +1,57 @@
 name: Build and Release
 
 on:
-  schedule:
-    # 每周一中午 00:00 运行
-    - cron: "0 10 * * 1"
-  workflow_dispatch:
+    schedule:
+        # 每周一中午 00:00 运行
+        - cron: "0 10 * * 1"
+    workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    # 授予创建 Release 的权限
-    permissions:
-      contents: write
+    build:
+        runs-on: ubuntu-latest
+        # 授予创建 Release 的权限
+        permissions:
+            contents: write
 
-    steps:
-      # 检出代码
-      - name: Checkout code
-        uses: actions/checkout@v4
+        steps:
+            # 检出代码
+            - name: Checkout code
+              uses: actions/checkout@v4
 
-      # 设置构建日期（东八区）
-      - name: Get current date
-        run: echo "BUILD_DATE=$(date -d '8 hours' +'%Y-%m-%d')" >> $GITHUB_ENV
+            # 设置构建日期（东八区）
+            - name: Get current date
+              run: echo "BUILD_DATE=$(date -d '8 hours' +'%Y-%m-%d')" >> $GITHUB_ENV
 
-      # 安装环境
-      - name: Init
-        run: |
-          bash scripts/init.sh
+            # 安装环境
+            - name: Init
+              run: bash scripts/init.sh
 
-      # 构建 zsh 相关
-      - name: Build zsh
-        run: bash scripts/zsh-conf-build.zsh
-      
-      # 构建 kits 相关
-      - name: build kits
-        run: bash scripts/kits-build.zsh
+            # 构建 zsh 相关
+            - name: Build zsh
+              run: bash scripts/zsh-conf-build.zsh
 
-      # 打包构建结果
-      - name: Package release asset
-        run: |
-          mkdir shellkits
-          mv zsh/ shellkits/zsh
-          mv kits/ shellkits/kits
-          cp README.md shellkits/README.md
-          cp setup.sh shellkits/setup.sh
-          tar -czf shellkits.zip shellkits/
+            # 构建 kits 相关
+            - name: build kits
+              run: bash scripts/kits-build.zsh
 
-      # 4. 创建 Release 并上传附件
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: shellkits.zip
-          name: Release ${{ github.BUILD_DATE }}
-          body: |
-            Automatic release for version ${{ github.BUILD_DATE }}
-            - Build commit: ${{ github.sha }}
-          draft: false
-          prerelease: false
+            # 打包构建结果
+            - name: Package release asset
+              run: |
+                  mkdir shellkits
+                  mv zsh/ shellkits/zsh
+                  mv kits/ shellkits/kits
+                  cp README.md shellkits/README.md
+                  cp setup.sh shellkits/setup.sh
+                  tar -czf shellkits.zip shellkits/
+
+            # 4. 创建 Release 并上传附件
+            - name: Create Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: shellkits.zip
+                  name: Release ${{ github.BUILD_DATE }}
+                  body: |
+                      Automatic release for version ${{ github.BUILD_DATE }}
+                      - Build commit: ${{ github.sha }}
+                  draft: false
+                  prerelease: false

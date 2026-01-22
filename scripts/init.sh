@@ -20,3 +20,4 @@ if ! command -v zsh &> /dev/null; then
             echo -e "未能识别的 Linux 发行版，请尝试手动安装。"
             exit 1
     fi
+fi
