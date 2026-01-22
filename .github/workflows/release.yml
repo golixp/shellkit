@@ -62,9 +62,10 @@ jobs:
                   files: |
                       shellkits.zip
                       shellkits-core.zip
+                  tag_name: build-${{ env.BUILD_DATE }}
                   name: Release ${{ env.BUILD_DATE }}
                   body: |
-                      Automatic release for version ${{ env.BUILD_DATE }}
+                      Automatic release
                       - Build commit: ${{ github.sha }}
                   draft: false
                   prerelease: false
