@@ -79,7 +79,7 @@ $ROOT_DIR/eget muesli/duf --to "$KITS_DIR" \
 --asset tar.gz
 
 # bottom
-$ROOT_DIR/eget ClementTsang/bottom --to "$KITS_DIR" \
+$ROOT_DIR/eget ClementTsang/bottom --to "$KITS_DIR" --file=btm \
 --asset x86_64 \
 --asset linux \
 --asset musl \
