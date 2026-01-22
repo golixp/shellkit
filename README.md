@@ -1,7 +1,6 @@
-
 ## 脚本介绍
 
-`scripts/init.sh`: 下载 `zsh` 和 
+`scripts/init.sh`: 下载 `zsh` 和 `eget`.
 
 `scripts/eget-download-kits.sh`: 下载软件列表二进制到 `kits`
 
@@ -22,6 +21,7 @@ kits
 ```
 
 `scripts/zsh-conf-build.zsh`: 会下载插件并生成插件加载脚本, 插件加载路径为 `$HOME/.local/share/shellkits/zsh`
+
 ```
 zsh
 ├── antidote
