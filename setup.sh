@@ -31,4 +31,4 @@ if ! command -v zsh &> /dev/null; then
 fi
 
 # 运行一次 zsh 生成缓存文件
-zsh -c "source ~/.zshrc; exit"
+zsh -c "source $HOME/.local/share/shellkits/zsh/.zshrc; exit"
