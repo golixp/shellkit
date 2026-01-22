@@ -17,6 +17,8 @@ jobs:
             # 检出代码
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                fetch-depth: 1
 
             # 设置构建日期（东八区）
             - name: Get current date
@@ -53,5 +55,5 @@ jobs:
                   body: |
                       Automatic release for version ${{ github.BUILD_DATE }}
                       - Build commit: ${{ github.sha }}
-                  draft: false
+                  draft: true
                   prerelease: false
