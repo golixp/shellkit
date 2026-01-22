@@ -14,6 +14,7 @@ $ROOT_DIR/eget helix-editor/helix --to "$KITS_DIR" \
 --asset AppImage \
 --asset x86_64 \
 --asset ^zsync
+mv $KITS_DIR/helix $KITS_DIR/hx
 
 # Yazi
 $ROOT_DIR/eget sxyazi/yazi --to "$KITS_DIR" --asset "yazi-x86_64-unknown-linux-musl.zip"
