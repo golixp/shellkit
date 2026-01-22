@@ -30,7 +30,7 @@ jobs:
 
             # 构建 zsh 相关
             - name: Build zsh
-              run: bash scripts/zsh-conf-build.zsh
+              run: zsh scripts/zsh-conf-build.zsh
 
             # 构建 kits 相关
             - name: build kits
