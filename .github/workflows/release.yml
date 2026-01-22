@@ -44,17 +44,16 @@ jobs:
                   mv kits/ shellkits/kits
                   cp README.md shellkits/README.md
                   cp setup.sh shellkits/setup.sh
-                  tar -zcvf shellkits.zip shellkits/
+                  tar -zcvf shellkits.tar.gz shellkits/
 
             # 打包构建结果
             - name: package shellkits-core
               run: |
-                  mkdir shellkits-core
                   cp -a shellkits/ shellkits-core/
                   rm shellkits-core/kits/hx 
                   rm shellkits-core/kits/yazi 
                   rm shellkits-core/kits/lazygit
-                  tar -zcvf shellkits-core.zip shellkits-core/
+                  tar -zcvf shellkits-core.tar.gz shellkits-core/
 
             # 创建 Release 并上传附件
             - name: create Release
