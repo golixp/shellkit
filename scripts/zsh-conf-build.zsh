@@ -29,3 +29,6 @@ cp $ROOT_DIR/zsh_plugins.txt $ZSH_DIR/zsh_plugins.txt
 cp $ROOT_DIR/p10k.zsh $ZSH_DIR/.p10k.zsh
 cp $ROOT_DIR/zshrc $ZSH_DIR/.zshrc
 cp $ROOT_DIR/zshenv $ZSH_DIR/.zshenv
+
+# 删除 zsh 插件的 .git 目录
+find $ZSH_DIR -name ".git" -type d -exec rm -rf {} +
