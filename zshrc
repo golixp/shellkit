@@ -35,7 +35,7 @@ source $HOME/.local/share/shellkits/zsh/zsh_plugins.zsh
 
 
 # 启动 P10k 主题
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $HOME/.local/share/shellkits/zsh/.p10k.zsh ]] || source $HOME/.local/share/shellkits/zsh/.p10k.zsh
 
 # 启动fzf-tab
 enable-fzf-tab
