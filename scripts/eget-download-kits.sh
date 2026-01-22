@@ -11,9 +11,9 @@ echo "Using eget to download kits to $KITS_DIR..."
 
 # Helix
 $ROOT_DIR/eget helix-editor/helix --to "$KITS_DIR" \
---asset AppImage \
---asset x86_64 \
---asset ^zsync
+--asset "AppImage" \
+--asset "x86_64" \
+--asset "^zsync"
 mv $KITS_DIR/helix $KITS_DIR/hx
 
 # Yazi
@@ -24,63 +24,63 @@ $ROOT_DIR/eget eza-community/eza --to "$KITS_DIR" --asset "eza_x86_64-unknown-li
 
 # fzf
 $ROOT_DIR/eget junegunn/fzf --to "$KITS_DIR" \
---asset linux \
---asset amd64 \
---asset tar.gz
+--asset "linux" \
+--asset "amd64" \
+--asset "tar.gz"
 
 # Zoxide
 $ROOT_DIR/eget ajeetdsouza/zoxide --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 # bat
 $ROOT_DIR/eget sharkdp/bat --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 # fd
 $ROOT_DIR/eget sharkdp/fd --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 # ripgrep
 $ROOT_DIR/eget BurntSushi/ripgrep --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 # lazygit
 $ROOT_DIR/eget jesseduffield/lazygit --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "tar.gz"
 
 # dust
 $ROOT_DIR/eget bootandy/dust --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 # duf
 $ROOT_DIR/eget muesli/duf --to "$KITS_DIR" \
---asset x86_64 \
---asset linux \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "tar.gz"
 
 # bottom
 $ROOT_DIR/eget ClementTsang/bottom --to "$KITS_DIR" --file=btm \
---asset x86_64 \
---asset linux \
---asset musl \
---asset tar.gz
+--asset "x86_64" \
+--asset "linux" \
+--asset "musl" \
+--asset "tar.gz"
 
 chmod +x "$KITS_DIR"/*
 
