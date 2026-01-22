@@ -29,7 +29,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # 
 
 
 # --- 加载插件 ---
-source ${zsh_plugins}.zsh
+source $HOME/.config/zsh/zsh_plugins.zsh
 
 
 # 启动 P10k 主题
