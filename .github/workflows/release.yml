@@ -15,21 +15,21 @@ jobs:
 
         steps:
             # 检出代码
-            - name: Checkout code
+            - name: checkout code
               uses: actions/checkout@v4
               with:
-                fetch-depth: 1
+                  fetch-depth: 1
 
             # 设置构建日期（东八区）
-            - name: Get current date
+            - name: get current date
               run: echo "BUILD_DATE=$(date -d '8 hours' +'%Y-%m-%d')" >> $GITHUB_ENV
 
             # 安装环境
-            - name: Init
+            - name: init
               run: bash scripts/init.sh
 
             # 构建 zsh 相关
-            - name: Build zsh
+            - name: build zsh
               run: zsh scripts/zsh-conf-build.zsh
 
             # 构建 kits 相关
@@ -37,23 +37,35 @@ jobs:
               run: bash scripts/eget-download-kits.sh
 
             # 打包构建结果
-            - name: Package release asset
+            - name: package shellkits
               run: |
                   mkdir shellkits
                   mv zsh/ shellkits/zsh
                   mv kits/ shellkits/kits
                   cp README.md shellkits/README.md
                   cp setup.sh shellkits/setup.sh
-                  tar -czf shellkits.zip shellkits/
+                  tar -zcvf shellkits.zip shellkits/
 
-            # 4. 创建 Release 并上传附件
-            - name: Create Release
+            # 打包构建结果
+            - name: package shellkits-core
+              run: |
+                  mkdir shellkits-core
+                  cp -a shellkits/ shellkits-core/
+                  rm shellkits-core/kits/hx 
+                  rm shellkits-core/kits/yazi 
+                  rm shellkits-core/kits/lazygit
+                  tar -zcvf shellkits-core.zip shellkits-core/
+
+            # 创建 Release 并上传附件
+            - name: create Release
               uses: softprops/action-gh-release@v2
               with:
-                  files: shellkits.zip
-                  name: Release ${{ github.BUILD_DATE }}
+                  files: |
+                      shellkits.zip
+                      shellkits-core.zip
+                  name: Release ${{ env.BUILD_DATE }}
                   body: |
-                      Automatic release for version ${{ github.BUILD_DATE }}
+                      Automatic release for version ${{ env.BUILD_DATE }}
                       - Build commit: ${{ github.sha }}
                   draft: true
                   prerelease: false
