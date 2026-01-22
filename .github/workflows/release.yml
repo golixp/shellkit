@@ -20,9 +20,11 @@ jobs:
               with:
                   fetch-depth: 1
 
-            # 设置构建日期（东八区）
+            # 设置构建日期和标签
             - name: get current date
-              run: echo "BUILD_DATE=$( date -Im)" >> $GITHUB_ENV
+              run: |
+                echo "BUILD_TIME=$(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_ENV
+                echo "BUILD_TAG=build-$(date -u '+%Y%m%d-%H%M%S')-${GITHUB_SHA::7}" >> $GITHUB_ENV
 
             # 安装环境
             - name: init
@@ -62,8 +64,8 @@ jobs:
                   files: |
                       shellkits.tar.gz
                       shellkits-core.tar.gz
-                  tag_name: build-${{ env.BUILD_DATE }}-${{ github.sha }}
-                  name: Release ${{ env.BUILD_DATE }}
+                  tag_name: ${{ env.BUILD_TAG }}
+                  name: Release ${{ env.BUILD_TIME }}
                   body: |
                       Automatic release
                       - Build commit: ${{ github.sha }}
