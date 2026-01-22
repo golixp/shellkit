@@ -7,10 +7,6 @@ KITS_DIR="$ROOT_DIR/kits"
 
 mkdir -p "$KITS_DIR"
 
-
-echo "downloading eget..."
-curl -fsSL https://zyedidia.github.io/eget.sh | sh
-
 echo "Using eget to download kits to $KITS_DIR..."
 
 # Helix
