@@ -34,7 +34,7 @@ jobs:
 
             # 构建 kits 相关
             - name: build kits
-              run: bash scripts/kits-build.zsh
+              run: bash scripts/eget-download-kits.sh
 
             # 打包构建结果
             - name: Package release asset
