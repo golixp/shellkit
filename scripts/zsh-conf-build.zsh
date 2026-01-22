@@ -22,7 +22,7 @@ autoload -Uz antidote
 antidote bundle < $ROOT_DIR/zsh_plugins.txt > $ZSH_DIR/zsh_plugins.zsh
 
 # 替换路径为配置目录
-sed -i "s|$ANTIDOTE_HOME|\$HOME/.local/share/shellkits/zsh/plugins|g" $ZSH_DIR/zsh_plugins.zsh
+sed -i "s|\"\S*/zsh/plugins|\"\$HOME/.local/share/shellkits/zsh/plugins|g" $ZSH_DIR/zsh_plugins.zsh
 
 # 复制相关文件
 cp $ROOT_DIR/zsh_plugins.txt $ZSH_DIR/zsh_plugins.txt
