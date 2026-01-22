@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "downloading eget..."
 curl -fsSL https://zyedidia.github.io/eget.sh | sh
 

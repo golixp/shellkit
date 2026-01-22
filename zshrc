@@ -3,6 +3,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# 加入 Shellkits 工具集路径
+path+=($HOME/.local/share/shellkits/kits)
 
 # --- 插件相关前置配置 ---
 # ez-compinit配置: 开启补全系统缓存
@@ -29,7 +31,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # 
 
 
 # --- 加载插件 ---
-source $HOME/.config/zsh/zsh_plugins.zsh
+source $HOME/.local/share/shellkits/zsh/zsh_plugins.zsh
 
 
 # 启动 P10k 主题
