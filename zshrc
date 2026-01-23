@@ -46,7 +46,7 @@ alias gc='git commit --verbose'
 alias gcm='git commit --message'
 alias gca='git commit --verbose --all'
 alias gcam='git commit --all --message'
-alias gc!='git commit --verbose --amend'
+alias 'gc!'='git commit --verbose --amend'
 
 # --- eza aliases ---
 typeset -ag eza_params
