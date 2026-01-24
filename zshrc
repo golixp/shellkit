@@ -3,11 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-# 加入 Shellkits 工具集路径
-path+=($HOME/.local/share/shellkits/kits)
-
-
 # --- git aliases ---
 # 基本命令
 alias g='git'
