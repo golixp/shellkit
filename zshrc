@@ -74,6 +74,10 @@ fi
 export VISUAL=$EDITOR
 
 
+# --- other settings ---
+# 配置 zsh 粘贴内容时不做高亮显示
+zle_highlight+=(paste:none)
+
 # --- 加载插件 ---
 # ez-compinit配置: 开启补全系统缓存
 # 路径优先级 $ZSH_COMPDUMP > $XDG_CACHE_HOME/zsh/zcompdump > ~/.cache/zsh/zcompdump 
