@@ -7,6 +7,7 @@ fi
 # 基本命令
 alias g='git'
 alias ga='git add'
+alias gaa='git add --all'
 alias gst='git status'
 
 alias gss='git stash'
@@ -29,8 +30,8 @@ alias gcb='git checkout -b'
 # push/pull 相关
 alias gp='git push'
 alias gl='git pull'
-alias gpr='git pull --rebase'
-alias gpra='git pull --rebase --autostash'
+alias glr='git pull --rebase'
+alias glra='git pull --rebase --autostash'
 
 # log 相关
 alias glog='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset" --date=iso'
@@ -39,11 +40,10 @@ alias gloga='git log --graph --pretty="%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 # commit 相关
 alias gc='git commit --verbose'
 alias gcm='git commit --message'
-alias gca='git commit --verbose --all'
-alias gcam='git commit --all --message'
 alias 'gc!'='git commit --verbose --amend'
 
 # --- eza aliases ---
+if (( $+commands[eza] )); then
 typeset -ag eza_params
 eza_params=(
   '--git'
@@ -59,10 +59,11 @@ alias llm='eza --all --header --long --sort=modified $eza_params'
 alias lls='eza --all --header --long --total-size $eza_params'
 alias lt='eza --tree $eza_params'
 alias lg='eza --git-ignore $eza_params'
+fi
 
 
 # --- 环境变量 ---
-# 配置默认编辑器, hx > vi
+# 配置默认编辑器, hx > vim >vi
 if (( $+commands[hx] )); then
   export EDITOR=hx
 elif (( $+commands[vim] )); then
