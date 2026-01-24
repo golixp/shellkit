@@ -44,21 +44,21 @@ alias 'gc!'='git commit --verbose --amend'
 
 # --- eza aliases ---
 if (( $+commands[eza] )); then
-typeset -ag eza_params
-eza_params=(
-  '--git'
-  '--group'
-  '--icons'
-  '--group-directories-first'
-  '--time-style=iso'
-  '--color-scale=all'
-)
+  typeset -ag eza_params
+  eza_params=(
+    '--git'
+    '--group'
+    '--icons'
+    '--group-directories-first'
+    '--time-style=iso'
+    '--color-scale=all'
+  )
 
-alias ll='eza --all --header --long $eza_params'
-alias llm='eza --all --header --long --sort=modified $eza_params'
-alias lls='eza --all --header --long --total-size $eza_params'
-alias lt='eza --tree $eza_params'
-alias lg='eza --git-ignore $eza_params'
+  alias ll='eza --all --header --long $eza_params'
+  alias llm='eza --all --header --long --sort=modified $eza_params'
+  alias lls='eza --all --header --long --total-size $eza_params'
+  alias lt='eza --tree $eza_params'
+  alias lg='eza --git-ignore $eza_params'
 fi
 
 
@@ -99,7 +99,7 @@ zstyle ':completion:*:descriptions' format '[%d]'  # 窗口增加 group 标题
 zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept                               # 使用 Tab 键确认 fzf-tab 中的选项
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath' # 在 cd 界面使用 eza 显示目录内容
 
-source $HOME/.local/share/shellkits/zsh/zsh_plugins.zsh
+source ${ZDOTDIR:-~}/zsh_plugins.zsh
 
 # 配置 zsh-history-substring-search 快捷键
 bindkey '^[[A'   history-substring-search-up    2>/dev/null # '^[[A' 序列的上方向键
@@ -117,6 +117,6 @@ if (( $+commands[zoxide] )); then
 fi
 
 # 启动 P10k 主题
-[[ ! -f $HOME/.local/share/shellkits/zsh/.p10k.zsh ]] || source $HOME/.local/share/shellkits/zsh/.p10k.zsh
+[[ ! -f ${ZDOTDIR:-~}/p10k.zsh ]] || source ${ZDOTDIR:-~}/p10k.zsh
 
 # --- 插件加载完成 ---

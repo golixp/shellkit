@@ -26,7 +26,7 @@ sed -i "s|\"\S*/zsh/plugins|\"\$HOME/.local/share/shellkits/zsh/plugins|g" $ZSH_
 
 # 复制相关文件
 cp $ROOT_DIR/zsh_plugins.txt $ZSH_DIR/zsh_plugins.txt
-cp $ROOT_DIR/p10k.zsh $ZSH_DIR/.p10k.zsh
+cp $ROOT_DIR/p10k.zsh $ZSH_DIR/p10k.zsh
 cp $ROOT_DIR/zshrc $ZSH_DIR/.zshrc
 cp $ROOT_DIR/zshenv $ZSH_DIR/.zshenv
 
