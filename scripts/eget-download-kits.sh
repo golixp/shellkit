@@ -82,6 +82,13 @@ $ROOT_DIR/eget ClementTsang/bottom --to "$KITS_DIR" --file=btm \
 --asset "musl" \
 --asset "tar.gz"
 
+# btop
+# $ROOT_DIR/eget aristocratos/btop --to "$KITS_DIR" \
+# --asset "x86_64" \
+# --asset "linux" \
+# --asset "musl" \
+# --asset "tbz"
+
 chmod +x "$KITS_DIR"/*
 
 echo "All kits downloaded successfully in $KITS_DIR"
