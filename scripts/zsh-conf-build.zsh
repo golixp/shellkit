@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-set -euo pipefail
+set -eo pipefail
 
 # 创建相关目录
 ROOT_DIR="$(pwd)"
